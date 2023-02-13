@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const CheckoutContainerForm = styled.form`
   max-width: 1120px;
+  padding-top: 4rem;
   margin-inline: auto;
   margin-bottom: 16rem;
 

@@ -1,9 +1,21 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
+  width: 100%;
+  padding: 0 3.2rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: ${(props) => props.theme.white};
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+`
+
+export const HeaderContainerLimiter = styled.div`
   max-width: 1184px;
+  height: 10rem;
   margin-inline: auto;
-  padding: 3.2rem 3.2rem;
 
   display: flex;
   align-items: center;

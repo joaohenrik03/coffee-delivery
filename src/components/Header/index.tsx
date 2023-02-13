@@ -4,6 +4,7 @@ import { CartContext } from '../../contexts/CartContext'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import {
   HeaderContainer,
+  HeaderContainerLimiter,
   NavContainer,
   ProductCounterInCart,
   StoreLocation,
@@ -17,29 +18,28 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <Link to="/">
-        <img
-          src={logoCoffeeDelivery}
-          alt="Copo de café roxo com um desenho de foguete no meio"
-        />
-      </Link>
-
-      <NavContainer>
-        <StoreLocation title="Ijuí, RS">
-          <MapPin size={22} weight="fill" />
-          Ijuí, RS
-        </StoreLocation>
-
-        <NavLink to="/checkout" title="Carrinho">
-          <ShoppingCart size={22} weight="fill" />
-
-          {!emptyCart && (
-            <ProductCounterInCart>
-              <strong>{amountOfProductsInCart}</strong>
-            </ProductCounterInCart>
-          )}
-        </NavLink>
-      </NavContainer>
+      <HeaderContainerLimiter>
+        <Link to="/">
+          <img
+            src={logoCoffeeDelivery}
+            alt="Copo de café roxo com um desenho de foguete no meio"
+          />
+        </Link>
+        <NavContainer>
+          <StoreLocation title="Ijuí, RS">
+            <MapPin size={22} weight="fill" />
+            Ijuí, RS
+          </StoreLocation>
+          <NavLink to="/checkout" title="Carrinho">
+            <ShoppingCart size={22} weight="fill" />
+            {!emptyCart && (
+              <ProductCounterInCart>
+                <strong>{amountOfProductsInCart}</strong>
+              </ProductCounterInCart>
+            )}
+          </NavLink>
+        </NavContainer>
+      </HeaderContainerLimiter>
     </HeaderContainer>
   )
 }
