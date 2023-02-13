@@ -16,6 +16,10 @@ export const AddressContainer = styled.div`
   border-radius: 6px;
   padding: 4rem;
 
+  @media (max-width: 374px) {
+    padding: 2rem;
+  }
+
   header {
     display: flex;
     gap: 0.8rem;
@@ -101,6 +105,10 @@ export const PaymentContainer = styled.div`
   border-radius: 6px;
   padding: 4rem;
 
+  @media (max-width: 374px) {
+    padding: 2rem;
+  }
+
   header {
     display: flex;
     gap: 0.8rem;
@@ -123,11 +131,14 @@ export const PaymentContainer = styled.div`
 
 export const FormOfPaymentContainer = styled.div`
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1.2rem;
 
   button {
     font-size: 1.2rem;
 
+    width: 17rem;
     padding: 1.6rem;
 
     border-radius: 6px;
@@ -136,7 +147,7 @@ export const FormOfPaymentContainer = styled.div`
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     gap: 1.2rem;
   }
 
