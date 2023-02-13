@@ -32,7 +32,7 @@ export function CoffeeCard({
   }
 
   function handleDecreaseQuantity() {
-    if (selectedQuantity > 0) {
+    if (selectedQuantity > 1) {
       setSelectedQuantity((state) => state - 1)
     }
   }
