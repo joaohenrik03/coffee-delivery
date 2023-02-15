@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const CartContainer = styled.section`
+  width: 100%;
+  max-width: 44.8rem;
+
   h2 {
     font-size: 1.8rem;
     line-height: 160%;

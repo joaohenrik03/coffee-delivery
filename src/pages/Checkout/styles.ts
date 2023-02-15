@@ -10,12 +10,13 @@ export const CheckoutContainerForm = styled.form`
   display: grid;
   grid-template-columns: 1fr 44.8rem;
   gap: 3.2rem;
+  justify-items: center;
 
   @media (max-width: 1023px) {
     grid-template-columns: 1fr 30.5rem;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 867px) {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;

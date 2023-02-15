@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const CompleteOrderContainer = styled.section`
+  width: 100%;
+  max-width: 64rem;
+
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -44,11 +47,6 @@ const HomeDataEntryBase = styled.div`
   display: flex;
   gap: 2.4rem;
   align-items: center;
-
-  input:first-child {
-    width: 100%;
-    max-width: 20rem;
-  }
 `
 
 export const AddressForm = styled.div`
@@ -70,33 +68,42 @@ export const AddressForm = styled.div`
       outline: 0;
       box-shadow: 0 0 0 2px ${(props) => props.theme.yellow};
     }
-  }
 
-  input::placeholder {
-    color: ${(props) => props.theme['base-label']};
-    font-size: 1.4rem;
-  }
+    &::placeholder {
+      color: ${(props) => props.theme['base-label']};
+      font-size: 1.4rem;
+    }
 
-  input:first-child {
-    width: 100%;
-    max-width: 20rem;
+    &:first-child {
+      width: 100%;
+      max-width: 20rem;
+    }
   }
 `
 
 export const HomeDataEntryContainer = styled(HomeDataEntryBase)`
+  input:first-child {
+    width: 100%;
+    max-width: 20rem;
+  }
+
   input:last-child {
     flex: 1;
   }
 `
 
 export const HomeLocationDataEntryContainer = styled(HomeDataEntryBase)`
-  input:nth-child(2) {
-    flex: 1;
+  input:first-child {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  input + input {
+    width: 100%;
   }
 
   input:last-child {
-    width: 100%;
-    max-width: 6rem;
+    width: 6rem;
   }
 `
 

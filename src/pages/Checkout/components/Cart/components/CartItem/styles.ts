@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const CartItemContainer = styled.li`
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 
   padding-bottom: 2.4rem;
   margin-bottom: 2.4rem;
@@ -23,7 +24,62 @@ export const CartItemContainer = styled.li`
   }
 
   strong {
-    margin-left: 5rem;
+    margin-left: auto;
+  }
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+    text-align: center;
+
+    img {
+      margin-right: 0;
+    }
+
+    p {
+      margin-top: 0.8rem;
+    }
+
+    strong {
+      margin-left: 0;
+      margin-top: 1.2rem;
+    }
+  }
+
+  @media (max-width: 867px) {
+    justify-content: inherit;
+    text-align: inherit;
+
+    img {
+      margin-right: 2rem;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    strong {
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 411px) {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    img {
+      margin-right: 0;
+    }
+
+    p {
+      margin-top: 0.8rem;
+    }
+
+    strong {
+      margin-left: 0;
+      margin-top: 1.2rem;
+    }
   }
 `
 
