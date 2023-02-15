@@ -35,7 +35,7 @@ export function CartItem({
   }
 
   function handleDecreaseQuantity() {
-    if (selectedQuantityItem > 0) {
+    if (selectedQuantityItem > 1) {
       setSelectedQuantityItem((state) => state - 1)
     }
   }
