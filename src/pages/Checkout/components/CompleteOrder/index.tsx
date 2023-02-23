@@ -1,5 +1,5 @@
 import { DeliveryAddress } from './components/DeliveryAddress'
-import { PaymentMethod } from './components/PaymentMethod'
+import { PaymentMethods } from './components/PaymentMethods'
 import { CompleteOrderContainer } from './styles'
 
 export function CompleteOrder() {
@@ -8,7 +8,7 @@ export function CompleteOrder() {
       <h2>Complete seu pedido</h2>
 
       <DeliveryAddress />
-      <PaymentMethod />
+      <PaymentMethods />
     </CompleteOrderContainer>
   )
 }

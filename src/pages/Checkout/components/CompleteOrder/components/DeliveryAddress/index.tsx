@@ -1,4 +1,5 @@
 import { MapPin } from 'phosphor-react'
+import { useFormContext } from 'react-hook-form'
 import {
   AddressContainer,
   AddressForm,
@@ -7,6 +8,8 @@ import {
 } from './styles'
 
 export function DeliveryAddress() {
+  const { register } = useFormContext()
+
   return (
     <AddressContainer>
       <header>
@@ -20,16 +23,36 @@ export function DeliveryAddress() {
       </header>
 
       <AddressForm>
-        <input type="text" placeholder="CEP" required />
-        <input type="text" placeholder="Rua" required />
+        <input type="text" placeholder="CEP" required {...register('cep')} />
+        <input type="text" placeholder="Rua" required {...register('road')} />
         <HomeDataEntryContainer>
-          <input type="text" placeholder="Número" required />
-          <input type="text" placeholder="Complemento" required />
+          <input
+            type="text"
+            placeholder="Número"
+            required
+            {...register('number')}
+          />
+          <input
+            type="text"
+            placeholder="Complemento"
+            required
+            {...register('complement')}
+          />
         </HomeDataEntryContainer>
         <HomeLocationDataEntryContainer>
-          <input type="text" placeholder="Bairro" required />
-          <input type="text" placeholder="Cidade" required />
-          <input type="text" placeholder="UF" required />
+          <input
+            type="text"
+            placeholder="Bairro"
+            required
+            {...register('district')}
+          />
+          <input
+            type="text"
+            placeholder="Cidade"
+            required
+            {...register('city')}
+          />
+          <input type="text" placeholder="UF" required {...register('state')} />
         </HomeLocationDataEntryContainer>
       </AddressForm>
     </AddressContainer>
