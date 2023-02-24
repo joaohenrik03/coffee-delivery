@@ -33,11 +33,49 @@ interface CartContextProviderProps {
 }
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartList, setCartList] = useState<CartItemListType[]>([])
+  const [cartList, setCartList] = useState<CartItemListType[]>(() => {
+    const cartListInLocalStorage = localStorage.getItem(
+      '@coffee-delivery:cart-list-1.0.0',
+    )
+
+    if (cartListInLocalStorage) {
+      return JSON.parse(cartListInLocalStorage)
+    } else {
+      return []
+    }
+  })
 
   const [amountOfProductsInCart, setAmountOfProductsInCart] = useState(0)
 
   const [totalValueCartItems, setTotalValueCartItems] = useState(0)
+
+  useEffect(() => {
+    const cartListJson = JSON.stringify(cartList)
+
+    localStorage.setItem('@coffee-delivery:cart-list-1.0.0', cartListJson)
+  }, [cartList])
+
+  useEffect(() => {
+    const newAmountOfProductsInCart = cartList.reduce(
+      (accumulator: number, currentElement: CartItemListType) => {
+        accumulator += currentElement.selectedQuantity
+        return accumulator
+      },
+      0,
+    )
+
+    setAmountOfProductsInCart(newAmountOfProductsInCart)
+
+    const newTotalValueCartItems = cartList.reduce(
+      (accumulator: number, currentElement: CartItemListType) => {
+        accumulator += currentElement.selectedQuantity * currentElement.price
+        return accumulator
+      },
+      0,
+    )
+
+    setTotalValueCartItems(newTotalValueCartItems)
+  }, [cartList])
 
   function addItemToCart(
     newCartItemToBeAdded: Coffee,
@@ -90,28 +128,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       setCartList(tempCartList)
     }
   }
-
-  useEffect(() => {
-    const newAmountOfProductsInCart = cartList.reduce(
-      (accumulator: number, currentElement: CartItemListType) => {
-        accumulator += currentElement.selectedQuantity
-        return accumulator
-      },
-      0,
-    )
-
-    setAmountOfProductsInCart(newAmountOfProductsInCart)
-
-    const newTotalValueCartItems = cartList.reduce(
-      (accumulator: number, currentElement: CartItemListType) => {
-        accumulator += currentElement.selectedQuantity * currentElement.price
-        return accumulator
-      },
-      0,
-    )
-
-    setTotalValueCartItems(newTotalValueCartItems)
-  }, [cartList])
 
   function clearCart() {
     setCartList([])
