@@ -1,4 +1,5 @@
 import { FormEvent, useContext, useState } from 'react'
+import { MySwal } from '../..'
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { CoffeeCardContainer, CoffeeCardForm } from './styles'
 import { CartContext } from '../../../../contexts/CartContext'
@@ -49,6 +50,14 @@ export function CoffeeCard({
 
     addItemToCart(newCartItemToBeAdded, selectedQuantity)
     setSelectedQuantity(1)
+
+    MySwal.fire({
+      icon: 'success',
+      title: 'Sucesso!',
+      text: 'Produto adicionado no carrinho.',
+      showConfirmButton: false,
+      timer: 1300,
+    })
   }
 
   return (
