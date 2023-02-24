@@ -1,8 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
+import { CartContextProvider } from './contexts/CartContext'
 import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/themes/default'
-import { CartContextProvider } from './contexts/CartContext'
-import { PaymentMethodProvider } from './contexts/PaymentMethod'
 import { Router } from './Router'
 import { GlobalStyle } from './styles/global'
 
@@ -11,10 +10,8 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <CartContextProvider>
-          <PaymentMethodProvider>
-            <Router />
-            <GlobalStyle />
-          </PaymentMethodProvider>
+          <Router />
+          <GlobalStyle />
         </CartContextProvider>
       </BrowserRouter>
     </ThemeProvider>
