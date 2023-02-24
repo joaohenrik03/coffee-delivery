@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../../../../../contexts/CartContext'
+import { MySwal } from '../../../../../Home'
 import { currencyFormatter } from '../../../../../../utils/CurrencyFormatter'
 import { Minus, Plus, Trash } from 'phosphor-react'
 import {
@@ -47,7 +48,20 @@ export function CartItem({
   }, [name, selectedQuantityItem])
 
   function handleRemoveItemToCart() {
-    removeItemToCart(name)
+    MySwal.fire({
+      title: 'Deseja remover o produto do carrinho?',
+      text: 'Você não será capaz de reverter isso!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#8047F8',
+      cancelButtonColor: '#D33',
+      confirmButtonText: 'Sim, remover!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        MySwal.fire('Removido!', 'Produto foi removido do carrinho.', 'success')
+        removeItemToCart(name)
+      }
+    })
   }
 
   return (
@@ -74,7 +88,7 @@ export function CartItem({
             </button>
           </ManageCartProductAmountContainer>
 
-          <button onClick={handleRemoveItemToCart}>
+          <button onClick={handleRemoveItemToCart} type="button">
             <Trash size={16} color="#8047F8" />
             Remover
           </button>
