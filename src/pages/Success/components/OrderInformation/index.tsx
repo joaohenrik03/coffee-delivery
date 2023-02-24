@@ -1,11 +1,19 @@
+import { ConfirmeOrderData } from '../../../Checkout'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { paymentMethods } from '../../../Checkout/components/CompleteOrder/components/PaymentMethods'
 import {
   Information,
   OrderInformationContainer,
   OrderInformationContent,
 } from './styles'
 
-export function OrderInformation({ orderInformationState }: any) {
+interface OrderInformationProps {
+  orderInformationState: ConfirmeOrderData
+}
+
+export function OrderInformation({
+  orderInformationState,
+}: OrderInformationProps) {
   return (
     <OrderInformationContainer>
       <strong>Uhu! Pedido confirmado</strong>
@@ -19,7 +27,11 @@ export function OrderInformation({ orderInformationState }: any) {
             </span>
             <div>
               <p>
-                Entrega em <span>Rua {orderInformationState.road}</span>
+                Entrega em{' '}
+                <span>
+                  Rua {orderInformationState.road},{' '}
+                  {orderInformationState.number}
+                </span>
               </p>
               <p>
                 {orderInformationState.district} - {orderInformationState.city},{' '}
@@ -47,7 +59,9 @@ export function OrderInformation({ orderInformationState }: any) {
             <div>
               <p>Pagamento na entrega</p>
               <p>
-                <span>{orderInformationState.selectedPaymentMethod}</span>
+                <span>
+                  {paymentMethods[orderInformationState.selectedPaymentMethod]}
+                </span>
               </p>
             </div>
           </Information>
