@@ -1,13 +1,13 @@
-import coffeeTradicionalImage from '../assets/coffeesImages/tradicional.png'
-import coffeeAmericanoImage from '../assets/coffeesImages/americano.png'
-import coffeeArabeImage from '../assets/coffeesImages/arabe.png'
-import coffeeChocolateQuenteImage from '../assets/coffeesImages/chocolate-quente.png'
-import coffeeComLeiteImage from '../assets/coffeesImages/com-leite.png'
-import coffeeCremosoImage from '../assets/coffeesImages/cremoso.png'
-import coffeeCubanoImage from '../assets/coffeesImages/cubano.png'
-import coffeeGeladoImage from '../assets/coffeesImages/gelado.png'
-import coffeeHavaianoImage from '../assets/coffeesImages/havaiano.png'
-import coffeeIrlandesImage from '../assets/coffeesImages/irlandes.png'
+import coffeeTraditionalImage from '../assets/coffeesImages/traditional.png'
+import coffeeAmericanImage from '../assets/coffeesImages/american.png'
+import coffeeArabImage from '../assets/coffeesImages/arab.png'
+import coffeeHotChocolateImage from '../assets/coffeesImages/hot-chocolate.png'
+import coffeeWithMilkImage from '../assets/coffeesImages/with-milk.png'
+import coffeeCreamyImage from '../assets/coffeesImages/creamy.png'
+import coffeeCubanImage from '../assets/coffeesImages/cuban.png'
+import coffeeIceImage from '../assets/coffeesImages/ice.png'
+import coffeeHawaiianImage from '../assets/coffeesImages/hawaiian.png'
+import coffeeIrishImage from '../assets/coffeesImages/irish.png'
 import coffeeLatteImage from '../assets/coffeesImages/latte.png'
 import coffeeMacchiatoImage from '../assets/coffeesImages/macchiato.png'
 import coffeeMochaccinoImage from '../assets/coffeesImages/mochaccino.png'
@@ -23,35 +23,35 @@ export interface Coffee {
 
 export const coffees = <Coffee[]>[
   {
-    imageUrl: coffeeTradicionalImage,
+    imageUrl: coffeeTraditionalImage,
     name: 'Expresso Tradicional',
     types: ['Tradicional'],
     price: 9.9,
     about: 'O tradicional café feito com água quente e grãos moídos',
   },
   {
-    imageUrl: coffeeAmericanoImage,
+    imageUrl: coffeeAmericanImage,
     name: 'Expresso Americano',
     types: ['Tradicional'],
     price: 9.9,
     about: 'Expresso diluído, menos intenso que o tradicional',
   },
   {
-    imageUrl: coffeeCremosoImage,
+    imageUrl: coffeeCreamyImage,
     name: 'Expresso Cremoso',
     types: ['Tradicional'],
     price: 9.9,
     about: 'Café expresso tradicional com espuma cremosa',
   },
   {
-    imageUrl: coffeeGeladoImage,
+    imageUrl: coffeeIceImage,
     name: 'Expresso Gelado',
     types: ['Tradicional', 'Gelado'],
     price: 9.9,
     about: 'Bebida preparada com café expresso e cubos de gelo',
   },
   {
-    imageUrl: coffeeComLeiteImage,
+    imageUrl: coffeeWithMilkImage,
     name: 'Café com Leite',
     types: ['Tradicional', 'Com leite'],
     price: 9.9,
@@ -86,28 +86,28 @@ export const coffees = <Coffee[]>[
     about: 'Café expresso com calda de chocolate, pouco leite e espuma',
   },
   {
-    imageUrl: coffeeChocolateQuenteImage,
+    imageUrl: coffeeHotChocolateImage,
     name: 'Chocolate Quente',
     types: ['Especial', 'Com leite'],
     price: 9.9,
     about: 'Bebida feita com chocolate dissolvido no leite quente e café',
   },
   {
-    imageUrl: coffeeCubanoImage,
+    imageUrl: coffeeCubanImage,
     name: 'Cubano',
     types: ['Especial', 'Alcoólico', 'Gelado'],
     price: 9.9,
     about: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
   },
   {
-    imageUrl: coffeeHavaianoImage,
+    imageUrl: coffeeHawaiianImage,
     name: 'Havaiano',
     types: ['Especial'],
     price: 9.9,
     about: 'Bebida adocicada preparada com café e leite de coco',
   },
   {
-    imageUrl: coffeeArabeImage,
+    imageUrl: coffeeArabImage,
     name: 'Árabe',
     types: ['Especial'],
     price: 9.9,
@@ -115,7 +115,7 @@ export const coffees = <Coffee[]>[
   },
 
   {
-    imageUrl: coffeeIrlandesImage,
+    imageUrl: coffeeIrishImage,
     name: 'Irlandês',
     types: ['Especial', 'Alcoólico'],
     price: 9.9,
