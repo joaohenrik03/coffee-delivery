@@ -70,12 +70,16 @@ export const CoffeeCardForm = styled.form`
   gap: 0.8rem;
 
   label {
-    font-family: 'Baloo 2', cursive;
-    font-size: 2.4rem;
-    color: ${(props) => props.theme['base-text']};
-    line-height: normal;
+    font-size: 1.4rem;
 
-    margin-right: 1.5rem;
+    span {
+      font-family: 'Baloo 2', cursive;
+      font-size: 2.4rem;
+      color: ${(props) => props.theme['base-text']};
+      line-height: normal;
+
+      margin-right: 1.5rem;
+    }
   }
 
   & > div {

@@ -1,6 +1,5 @@
 import { FormEvent, useContext, useState } from 'react'
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import { currencyFormatter } from '../../../../utils/CurrencyFormatter'
 import { CoffeeCardContainer, CoffeeCardForm } from './styles'
 import { CartContext } from '../../../../contexts/CartContext'
 
@@ -64,7 +63,12 @@ export function CoffeeCard({
       <p>{about}</p>
 
       <CoffeeCardForm onSubmit={handleAddItemToCart}>
-        <label>{currencyFormatter(price)}</label>
+        <label>
+          R${' '}
+          <span>
+            {price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
+          </span>
+        </label>
 
         <div>
           <button type="button" onClick={handleDecreaseQuantity}>
