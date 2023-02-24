@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
+import { useContext } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { useNavigate } from 'react-router-dom'
+import { CartContext } from '../../contexts/CartContext'
 import { Cart } from './components/Cart'
 import { CompleteOrder } from './components/CompleteOrder'
 import { CheckoutContainerForm } from './styles'
@@ -23,6 +25,8 @@ const confirmeOrderValidationSchema = zod.object({
 export type ConfirmeOrderData = zod.infer<typeof confirmeOrderValidationSchema>
 
 export function Checkout() {
+  const { clearCart } = useContext(CartContext)
+
   const confirmeOrderForm = useForm<ConfirmeOrderData>({
     resolver: zodResolver(confirmeOrderValidationSchema),
     defaultValues: {
@@ -45,6 +49,8 @@ export function Checkout() {
     navigate('/success', {
       state: data,
     })
+
+    clearCart()
   }
 
   return (
