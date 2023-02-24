@@ -1,16 +1,15 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
-import { useContext } from 'react'
-import { PaymentMethodContext } from '../../../../../../contexts/PaymentMethod'
-
+import { useFormContext } from 'react-hook-form'
 import {
   PaymentMethodsContainer,
   FormOfPaymentContainer,
-  PaymentMethodButton,
+  PaymentMethodInput,
 } from './styles'
 
 export function PaymentMethods() {
-  const { selectedPaymentMethod, handleSetSelectedPaymentMethod } =
-    useContext(PaymentMethodContext)
+  const { register, watch } = useFormContext()
+
+  const updatedSelectedPaymentMethod = watch('selectedPaymentMethod')
 
   return (
     <PaymentMethodsContainer>
@@ -27,36 +26,51 @@ export function PaymentMethods() {
       </header>
 
       <FormOfPaymentContainer>
-        <PaymentMethodButton
-          type="button"
-          title="Cartão de crédito"
-          onClick={() => handleSetSelectedPaymentMethod('credit')}
+        <PaymentMethodInput
           className={'credit'}
-          selectedButton={selectedPaymentMethod}
+          customInput={updatedSelectedPaymentMethod}
         >
-          <CreditCard size={16} />
-          Cartão de crédito
-        </PaymentMethodButton>
-        <PaymentMethodButton
-          type="button"
-          title="Cartão de débito"
-          onClick={() => handleSetSelectedPaymentMethod('debt')}
+          <input
+            type="radio"
+            value={'credit'}
+            className={'credit'}
+            {...register('selectedPaymentMethod')}
+          />
+          <label>
+            <CreditCard size={16} />
+            Cartão de crédito
+          </label>
+        </PaymentMethodInput>
+        <PaymentMethodInput
           className={'debt'}
-          selectedButton={selectedPaymentMethod}
+          customInput={updatedSelectedPaymentMethod}
         >
-          <Bank size={16} />
-          Cartão de débito
-        </PaymentMethodButton>
-        <PaymentMethodButton
-          type="button"
-          title="Dinheiro"
-          onClick={() => handleSetSelectedPaymentMethod('money')}
+          <input
+            type="radio"
+            value={'debt'}
+            className={'debt'}
+            {...register('selectedPaymentMethod')}
+          />
+          <label>
+            <Bank size={16} />
+            Cartão de débito
+          </label>
+        </PaymentMethodInput>
+        <PaymentMethodInput
           className={'money'}
-          selectedButton={selectedPaymentMethod}
+          customInput={updatedSelectedPaymentMethod}
         >
-          <Money size={16} />
-          Dinheiro
-        </PaymentMethodButton>
+          <input
+            type="radio"
+            value={'money'}
+            className={'money'}
+            {...register('selectedPaymentMethod')}
+          />
+          <label>
+            <Money size={16} />
+            Dinheiro
+          </label>
+        </PaymentMethodInput>
       </FormOfPaymentContainer>
     </PaymentMethodsContainer>
   )
