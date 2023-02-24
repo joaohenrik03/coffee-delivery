@@ -60,7 +60,10 @@ export function OrderInformation({
               <p>Pagamento na entrega</p>
               <p>
                 <span>
-                  {paymentMethods[orderInformationState.selectedPaymentMethod]}
+                  {
+                    paymentMethods[orderInformationState.selectedPaymentMethod]
+                      .label
+                  }
                 </span>
               </p>
             </div>
