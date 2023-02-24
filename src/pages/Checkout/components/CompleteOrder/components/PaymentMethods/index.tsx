@@ -1,16 +1,26 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
-import { useFormContext } from 'react-hook-form'
-import {
-  PaymentMethodsContainer,
-  FormOfPaymentContainer,
-  PaymentMethodInput,
-} from './styles'
+import { PaymentMethodInput } from '../PaymentMethodInput'
+import { PaymentMethodsContainer, FormOfPaymentContainer } from './styles'
+
+export const paymentMethods = {
+  credit: {
+    title: 'credit',
+    icon: <CreditCard size={16} />,
+    label: 'Cartão de Crédito',
+  },
+  debt: {
+    title: 'debt',
+    icon: <Bank size={16} />,
+    label: 'Cartão de Débito',
+  },
+  money: {
+    title: 'money',
+    icon: <Money size={16} />,
+    label: 'Dinheiro',
+  },
+} as const
 
 export function PaymentMethods() {
-  const { register, watch } = useFormContext()
-
-  const updatedSelectedPaymentMethod = watch('selectedPaymentMethod')
-
   return (
     <PaymentMethodsContainer>
       <header>
@@ -26,51 +36,16 @@ export function PaymentMethods() {
       </header>
 
       <FormOfPaymentContainer>
-        <PaymentMethodInput
-          className={'credit'}
-          customInput={updatedSelectedPaymentMethod}
-        >
-          <input
-            type="radio"
-            value={'credit'}
-            className={'credit'}
-            {...register('selectedPaymentMethod')}
-          />
-          <label>
-            <CreditCard size={16} />
-            Cartão de crédito
-          </label>
-        </PaymentMethodInput>
-        <PaymentMethodInput
-          className={'debt'}
-          customInput={updatedSelectedPaymentMethod}
-        >
-          <input
-            type="radio"
-            value={'debt'}
-            className={'debt'}
-            {...register('selectedPaymentMethod')}
-          />
-          <label>
-            <Bank size={16} />
-            Cartão de débito
-          </label>
-        </PaymentMethodInput>
-        <PaymentMethodInput
-          className={'money'}
-          customInput={updatedSelectedPaymentMethod}
-        >
-          <input
-            type="radio"
-            value={'money'}
-            className={'money'}
-            {...register('selectedPaymentMethod')}
-          />
-          <label>
-            <Money size={16} />
-            Dinheiro
-          </label>
-        </PaymentMethodInput>
+        {Object.entries(paymentMethods).map(([key, { title, icon, label }]) => {
+          return (
+            <PaymentMethodInput
+              key={title}
+              title={title}
+              icon={icon}
+              label={label}
+            />
+          )
+        })}
       </FormOfPaymentContainer>
     </PaymentMethodsContainer>
   )
