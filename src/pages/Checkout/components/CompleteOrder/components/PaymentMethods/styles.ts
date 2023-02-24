@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PaymentContainer = styled.div`
+export const PaymentMethodsContainer = styled.div`
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 6px;
   padding: 4rem;
@@ -36,11 +36,11 @@ export const FormOfPaymentContainer = styled.div`
   gap: 1.2rem;
 `
 
-export interface TypeOfPaymentButtonProps {
-  typeCustom: string
+export interface PaymentMethodButtonProps {
+  selectedButton: string
 }
 
-export const TypeOfPaymentButton = styled.button<TypeOfPaymentButtonProps>`
+export const PaymentMethodButton = styled.button<PaymentMethodButtonProps>`
   font-size: 1.2rem;
 
   width: 17rem;
@@ -59,7 +59,7 @@ export const TypeOfPaymentButton = styled.button<TypeOfPaymentButtonProps>`
     color: ${(props) => props.theme.purple};
   }
 
-  &.${(props) => props.typeCustom} {
+  &.${(props) => props.selectedButton} {
     border: 1px solid ${(props) => props.theme.purple};
     background-color: ${(props) => props.theme['purple-light']};
   }

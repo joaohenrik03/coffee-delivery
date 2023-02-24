@@ -5,7 +5,7 @@ import { PaymentMethodContext } from '../../../../../../contexts/PaymentMethod'
 import {
   PaymentMethodsContainer,
   FormOfPaymentContainer,
-  TypeOfPaymentButton,
+  PaymentMethodButton,
 } from './styles'
 
 export function PaymentMethods() {
@@ -27,36 +27,36 @@ export function PaymentMethods() {
       </header>
 
       <FormOfPaymentContainer>
-        <TypeOfPaymentButton
+        <PaymentMethodButton
           type="button"
           title="Cartão de crédito"
           onClick={() => handleSetSelectedPaymentMethod('credit')}
           className={'credit'}
-          typeCustom={selectedPaymentMethod}
+          selectedButton={selectedPaymentMethod}
         >
           <CreditCard size={16} />
           Cartão de crédito
-        </TypeOfPaymentButton>
-        <TypeOfPaymentButton
+        </PaymentMethodButton>
+        <PaymentMethodButton
           type="button"
           title="Cartão de débito"
           onClick={() => handleSetSelectedPaymentMethod('debt')}
           className={'debt'}
-          typeCustom={selectedPaymentMethod}
+          selectedButton={selectedPaymentMethod}
         >
           <Bank size={16} />
           Cartão de débito
-        </TypeOfPaymentButton>
-        <TypeOfPaymentButton
+        </PaymentMethodButton>
+        <PaymentMethodButton
           type="button"
           title="Dinheiro"
           onClick={() => handleSetSelectedPaymentMethod('money')}
           className={'money'}
-          typeCustom={selectedPaymentMethod}
+          selectedButton={selectedPaymentMethod}
         >
           <Money size={16} />
           Dinheiro
-        </TypeOfPaymentButton>
+        </PaymentMethodButton>
       </FormOfPaymentContainer>
     </PaymentMethodsContainer>
   )
