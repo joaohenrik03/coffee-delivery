@@ -13,7 +13,9 @@ export function Checkout() {
   function handleConfirmOrder(data: any) {
     console.log(data)
     console.log('Pedido confirmado')
-    navigate('/success')
+    navigate('/success', {
+      state: data,
+    })
   }
 
   return (

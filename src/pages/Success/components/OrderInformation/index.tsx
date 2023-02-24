@@ -1,11 +1,15 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext } from 'react'
+import { CartContext } from '../../../../contexts/CartContext'
 import {
   Information,
   OrderInformationContainer,
   OrderInformationContent,
 } from './styles'
 
-export function OrderInformation() {
+export function OrderInformation({ orderInformationState }: any) {
+  const { selectedPaymentMethod } = useContext(CartContext)
+
   return (
     <OrderInformationContainer>
       <strong>Uhu! Pedido confirmado</strong>
@@ -19,9 +23,12 @@ export function OrderInformation() {
             </span>
             <div>
               <p>
-                Entrega em Rua <span>João Daniel Martinelli, 102</span>
+                Entrega em <span>Rua {orderInformationState.road}</span>
               </p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>
+                {orderInformationState.district} - {orderInformationState.city},{' '}
+                {orderInformationState.state}
+              </p>
             </div>
           </Information>
 
@@ -44,7 +51,7 @@ export function OrderInformation() {
             <div>
               <p>Pagamento na entrega</p>
               <p>
-                <span>Cartão de Crédito</span>
+                <span>{selectedPaymentMethod}</span>
               </p>
             </div>
           </Information>

@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import { useFormContext } from 'react-hook-form'
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
+import { useContext } from 'react'
+import { CartContext } from '../../../../../../contexts/CartContext'
+
 import {
   FormOfPaymentContainer,
   PaymentContainer,
@@ -8,13 +9,8 @@ import {
 } from './styles'
 
 export function PaymentMethods() {
-  const [methodsPaymentSelected, setMethodsPaymentSelected] = useState('credit')
-
-  const { register } = useFormContext()
-
-  function updatePaymentMethod(newMethod: string) {
-    setMethodsPaymentSelected(newMethod)
-  }
+  const { selectedPaymentMethod, handleSetSelectedPaymentMethod } =
+    useContext(CartContext)
 
   return (
     <PaymentContainer>
@@ -34,9 +30,9 @@ export function PaymentMethods() {
         <TypeOfPaymentButton
           type="button"
           title="Cartão de crédito"
-          onClick={() => updatePaymentMethod('credit')}
+          onClick={() => handleSetSelectedPaymentMethod('credit')}
           className={'credit'}
-          typeCustom={methodsPaymentSelected}
+          typeCustom={selectedPaymentMethod}
         >
           <CreditCard size={16} />
           Cartão de crédito
@@ -44,9 +40,9 @@ export function PaymentMethods() {
         <TypeOfPaymentButton
           type="button"
           title="Cartão de débito"
-          onClick={() => updatePaymentMethod('debt')}
+          onClick={() => handleSetSelectedPaymentMethod('debt')}
           className={'debt'}
-          typeCustom={methodsPaymentSelected}
+          typeCustom={selectedPaymentMethod}
         >
           <Bank size={16} />
           Cartão de débito
@@ -54,9 +50,9 @@ export function PaymentMethods() {
         <TypeOfPaymentButton
           type="button"
           title="Dinheiro"
-          onClick={() => updatePaymentMethod('money')}
+          onClick={() => handleSetSelectedPaymentMethod('money')}
           className={'money'}
-          typeCustom={methodsPaymentSelected}
+          typeCustom={selectedPaymentMethod}
         >
           <Money size={16} />
           Dinheiro
