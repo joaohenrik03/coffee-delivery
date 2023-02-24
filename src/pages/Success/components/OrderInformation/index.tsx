@@ -1,6 +1,4 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
-import { useContext } from 'react'
-import { CartContext } from '../../../../contexts/CartContext'
 import {
   Information,
   OrderInformationContainer,
@@ -8,8 +6,6 @@ import {
 } from './styles'
 
 export function OrderInformation({ orderInformationState }: any) {
-  const { selectedPaymentMethod } = useContext(CartContext)
-
   return (
     <OrderInformationContainer>
       <strong>Uhu! Pedido confirmado</strong>
@@ -51,7 +47,7 @@ export function OrderInformation({ orderInformationState }: any) {
             <div>
               <p>Pagamento na entrega</p>
               <p>
-                <span>{selectedPaymentMethod}</span>
+                <span>{orderInformationState.selectedPaymentMethod}</span>
               </p>
             </div>
           </Information>
