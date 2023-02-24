@@ -1,19 +1,19 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
 import { useContext } from 'react'
-import { CartContext } from '../../../../../../contexts/CartContext'
+import { PaymentMethodContext } from '../../../../../../contexts/PaymentMethod'
 
 import {
+  PaymentMethodsContainer,
   FormOfPaymentContainer,
-  PaymentContainer,
   TypeOfPaymentButton,
 } from './styles'
 
 export function PaymentMethods() {
   const { selectedPaymentMethod, handleSetSelectedPaymentMethod } =
-    useContext(CartContext)
+    useContext(PaymentMethodContext)
 
   return (
-    <PaymentContainer>
+    <PaymentMethodsContainer>
       <header>
         <span>
           <CurrencyDollar size={22} />
@@ -58,6 +58,6 @@ export function PaymentMethods() {
           Dinheiro
         </TypeOfPaymentButton>
       </FormOfPaymentContainer>
-    </PaymentContainer>
+    </PaymentMethodsContainer>
   )
 }
