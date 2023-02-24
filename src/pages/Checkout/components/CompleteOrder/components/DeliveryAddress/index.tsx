@@ -1,7 +1,7 @@
 import { MapPin } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
 import {
-  AddressContainer,
+  DeliveryAddressContainer,
   AddressForm,
   HomeDataEntryContainer,
   HomeLocationDataEntryContainer,
@@ -11,7 +11,7 @@ export function DeliveryAddress() {
   const { register } = useFormContext()
 
   return (
-    <AddressContainer>
+    <DeliveryAddressContainer>
       <header>
         <span>
           <MapPin size={22} />
@@ -55,6 +55,6 @@ export function DeliveryAddress() {
           <input type="text" placeholder="UF" required {...register('state')} />
         </HomeLocationDataEntryContainer>
       </AddressForm>
-    </AddressContainer>
+    </DeliveryAddressContainer>
   )
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AddressContainer = styled.div`
+export const DeliveryAddressContainer = styled.div`
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 6px;
   padding: 4rem;
