@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
 
   background-color: ${(props) => props.theme.white};
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
