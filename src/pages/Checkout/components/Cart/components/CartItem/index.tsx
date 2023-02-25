@@ -27,6 +27,8 @@ export function CartItem({
   const [selectedQuantityItem, setSelectedQuantityItem] =
     useState(selectedQuantity)
 
+  const minimumAmount = selectedQuantity === 1 ? 'minimum' : 'notMinimum'
+
   function handleChangeQuantity(quantity: number) {
     setSelectedQuantityItem(quantity)
   }
@@ -71,7 +73,11 @@ export function CartItem({
         <p>{name}</p>
         <ManageCartProductContainer>
           <ManageCartProductAmountContainer>
-            <button type="button" onClick={handleDecreaseQuantity}>
+            <button
+              type="button"
+              onClick={handleDecreaseQuantity}
+              className={minimumAmount}
+            >
               <Minus size={14} weight="bold" />
             </button>
 

@@ -23,6 +23,8 @@ export function CoffeeCard({
 
   const [selectedQuantity, setSelectedQuantity] = useState(1)
 
+  const minimumAmount = selectedQuantity === 1 ? 'minimum' : 'notMinimum'
+
   function handleChangeQuantity(quantity: number) {
     setSelectedQuantity(quantity)
   }
@@ -80,7 +82,11 @@ export function CoffeeCard({
         </label>
 
         <div>
-          <button type="button" onClick={handleDecreaseQuantity}>
+          <button
+            type="button"
+            onClick={handleDecreaseQuantity}
+            className={minimumAmount}
+          >
             <Minus size={14} weight="bold" />
           </button>
 

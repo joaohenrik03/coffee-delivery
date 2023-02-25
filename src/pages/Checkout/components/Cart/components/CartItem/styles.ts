@@ -150,5 +150,13 @@ export const ManageCartProductAmountContainer = styled.div`
         color: ${(props) => props.theme['purple-dark']};
       }
     }
+
+    &.minimum {
+      cursor: not-allowed;
+    }
+
+    &.notMinimum {
+      cursor: pointer;
+    }
   }
 `
