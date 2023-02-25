@@ -25,6 +25,7 @@ export function PaymentMethodInput({
     >
       <input
         type="radio"
+        title={label}
         value={title}
         className={title}
         {...register('selectedPaymentMethod')}
