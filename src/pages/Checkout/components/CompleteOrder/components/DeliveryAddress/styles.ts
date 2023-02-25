@@ -85,7 +85,7 @@ export const HomeLocationDataEntryContainer = styled(HomeDataEntryBase)`
   }
 
   input + input {
-    width: calc(100% - 6rem)
+    width: calc(100% - 6rem);
   }
 
   input:last-child {
