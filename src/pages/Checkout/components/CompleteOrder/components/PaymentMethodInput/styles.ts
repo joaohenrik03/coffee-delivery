@@ -9,8 +9,13 @@ export const PaymentMethodInputContainer = styled.div<PaymentMethodInputProps>`
 
   position: relative;
 
-  width: 17rem;
-  padding: 1.6rem;
+  width: 16rem;
+  height: 5rem;
+  padding: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
 
   border-radius: 6px;
   border: 1px solid ${(props) => props.theme['base-button']};
