@@ -16,7 +16,6 @@ export function PaymentMethodInput({
   const { register, watch } = useFormContext()
 
   const updatedSelectedPaymentMethod = watch('selectedPaymentMethod')
-  console.log(title, label, updatedSelectedPaymentMethod)
 
   return (
     <PaymentMethodInputContainer
